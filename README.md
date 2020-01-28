@@ -1,7 +1,7 @@
-# `@reason-react-native/react-native-push-notification-ios`
+# `@reason-react-native/push-notification-ios`
 
-[![Build Status](https://github.com/reason-react-native/react-native-push-notification-ios/workflows/Build/badge.svg)](https://github.com/reason-react-native/react-native-push-notification-ios/actions)
-[![Version](https://img.shields.io/npm/v/@reason-react-native/react-native-push-notification-ios.svg)](https://www.npmjs.com/@reason-react-native/react-native-push-notification-ios)
+[![Build Status](https://github.com/reason-react-native/push-notification-ios/workflows/Build/badge.svg)](https://github.com/reason-react-native/push-notification-ios/actions)
+[![Version](https://img.shields.io/npm/v/@reason-react-native/push-notification-ios.svg)](https://www.npmjs.com/@reason-react-native/push-notification-ios)
 [![Chat](https://img.shields.io/discord/235176658175262720.svg?logo=discord&colorb=blue)](https://reasonml-community.github.io/reason-react-native/discord/)
 
 [ReasonML](https://reasonml.github.io) /
@@ -10,24 +10,23 @@
 
 Exposed as `ReactNativePushNotificationIOS` module.
 
-`@reason-react-native/react-native-push-notification-ios` X.y._ means it's
-compatible with `@react-native-community/react-native-push-notification-ios`
-X.y._
+`@reason-react-native/push-notification-ios` X.y._ means it's compatible with
+`@react-native-community/react-native-push-notification-ios` X.y._
 
 ## Installation
 
 When
-[`@react-native-community/react-native-push-notification-ios`](https://github.com/react-native-community/react-native-push-notification-ios)
+[`@react-native-community/push-notification-ios`](https://github.com/react-native-community/push-notification-ios)
 is properly installed & configured by following their installation instructions,
 you can install the bindings:
 
 ```console
-npm install @reason-react-native/react-native-push-notification-ios
+npm install @reason-react-native/push-notification-ios
 # or
-yarn add @reason-react-native/react-native-push-notification-ios
+yarn add @reason-react-native/push-notification-ios
 ```
 
-`@reason-react-native/react-native-push-notification-ios` should be added to
+`@reason-react-native/push-notification-ios` should be added to
 `bs-dependencies` in your `bsconfig.json`. Something like
 
 ```diff
@@ -37,7 +36,7 @@ yarn add @reason-react-native/react-native-push-notification-ios
     "reason-react",
     "reason-react-native",
     // ...
-+    "@reason-react-native/react-native-push-notification-ios"
++    "@reason-react-native/push-notification-ios"
   ],
   //...
 }
