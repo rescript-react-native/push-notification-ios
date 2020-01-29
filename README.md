@@ -48,13 +48,13 @@ yarn add @reason-react-native/push-notification-ios
 
 #### `ReactNativePushNotificationIOS.Notification.t`
 
-```re
+```reason
   type t; // abstract type
 ```
 
 #### `ReactNativePushNotificationIOS.localNotification`
 
-```re
+```reason
 type localNotification;
 
 [@bs.obj]
@@ -86,7 +86,7 @@ external localNotification:
 
 #### `ReactNativePushNotificationIOS.deliveredNotification`
 
-```re
+```reason
 type deliveredNotification = {
   .
   "identifier": string,
@@ -101,7 +101,7 @@ type deliveredNotification = {
 
 #### `ReactNativePushNotificationIOS.formattedLocalNotification`
 
-```re
+```reason
 type formattedLocalNotification = {
   .
   "fireDate": Js.Nullable.t(string),
@@ -116,7 +116,7 @@ type formattedLocalNotification = {
 
 #### `ReactNativePushNotificationIOS.registrationError`
 
-```re
+```reason
 type registrationError('a) = {
   .
   "message": string,
@@ -127,7 +127,7 @@ type registrationError('a) = {
 
 #### `ReactNativePushNotificationIOS.permissions`
 
-```re
+```reason
 type permissions = {
   .
   "alert": bool,
@@ -138,7 +138,7 @@ type permissions = {
 
 #### `ReactNativePushNotificationIOS.requestPermissionsOptions`
 
-```re
+```reason
 type requestPermissionsOptions;
 [@bs.obj]
 external requestPermissionsOptions:
@@ -149,7 +149,7 @@ external requestPermissionsOptions:
 
 #### `ReactNativePushNotificationIOS.fetchResult`
 
-```re
+```reason
 type fetchResult;
 [@bs.obj]
 external fetchResult:
@@ -162,25 +162,25 @@ external fetchResult:
 
 #### `ReactNativePushNotificationIOS.Notification.getAlert`
 
-```re
+```reason
 Notification.t => option(Js.Json.t)
 ```
 
 #### `ReactNativePushNotificationIOS.Notification.getMessage`
 
-```re
+```reason
 Notification.t => option(Js.Json.t)
 ```
 
 #### `ReactNativePushNotificationIOS.Notification.getSound`
 
-```re
+```reason
 Notification.t => option(string)
 ```
 
 #### `ReactNativePushNotificationIOS.Notification.getCategory`
 
-```re
+```reason
 Notification.t => option(string)
 ```
 
@@ -192,91 +192,91 @@ Notification.t => bool
 
 #### `ReactNativePushNotificationIOS.Notification.getBadgeCount`
 
-```re
+```reason
 Notification.t => option(int)
 ```
 
 #### `ReactNativePushNotificationIOS.Notification.getData`
 
-```re
+```reason
 Notification.t => option(Js.Json.t)
 ```
 
 #### `ReactNativePushNotificationIOS.Notification.getThreadID`
 
-```re
+```reason
 Notification.t => option(string)
 ```
 
 #### `ReactNativePushNotificationIOS.presentLocalNotification`
 
-```re
+```reason
 localNotification => unit
 ```
 
 #### `ReactNativePushNotificationIOS.scheduleLocalNotification`
 
-```re
+```reason
 localNotification => unit
 ```
 
 #### `ReactNativePushNotificationIOS.cancelAllLocalNotifications`
 
-```re
+```reason
 unit => unit
 ```
 
 #### `ReactNativePushNotificationIOS.removeAllDeliveredNotifications`
 
-```re
+```reason
 unit => unit
 ```
 
 #### `ReactNativePushNotificationIOS.getDeliveredNotifications`
 
-```re
+```reason
 (array(deliveredNotification) => unit)
 ```
 
 #### `ReactNativePushNotificationIOS.removeDeliveredNotifications`
 
-```re
+```reason
 (~identifiers: array(string)) => unit
 ```
 
 #### `ReactNativePushNotificationIOS.setApplicationIconBadgeNumber`
 
-```re
+```reason
 int => unit
 ```
 
 #### `ReactNativePushNotificationIOS.getApplicationIconBadgeNumber`
 
-```re
+```reason
 (int => unit) => unit
 ```
 
 #### `ReactNativePushNotificationIOS.cancelLocalNotifications`
 
-```re
+```reason
 unit => unit
 ```
 
 #### `ReactNativePushNotificationIOS.cancelLocalNotificationsWithUserInfo`
 
-```re
+```reason
 Js.Json.t => unit
 ```
 
 #### `ReactNativePushNotificationIOS.getScheduledLocalNotifications`
 
-```re
+```reason
 (array(formattedLocalNotification) => unit) => unit
 ```
 
 #### `ReactNativePushNotificationIOS.addEventListener`
 
-```re
+```reason
   (
   [@bs.string]
   [
@@ -291,7 +291,7 @@ Js.Json.t => unit
 
 #### `ReactNativePushNotificationIOS.removeEventListener`
 
-```re
+```reason
 (
   [@bs.string]
   [
@@ -306,37 +306,37 @@ Js.Json.t => unit
 
 #### `ReactNativePushNotificationIOS.requestPermissions`
 
-```re
+```reason
 unit => Js.Promise.t(permissions)
 ```
 
 #### `ReactNativePushNotificationIOS.requestPermissionsWithOptions`
 
-```re
+```reason
 requestPermissionsOptions => Js.Promise.t(permissions)
 ```
 
 #### `ReactNativePushNotificationIOS.abandonPermissions`
 
-```re
+```reason
 unit => unit
 ```
 
 #### `ReactNativePushNotificationIOS.checkPermissions`
 
-```re
+```reason
 (unit => permissions) => unit
 ```
 
 #### `ReactNativePushNotificationIOS.finish`
 
-```re
+```reason
 fetchResult => unit
 ```
 
 #### `ReactNativePushNotificationIOS.getInitialNotification`
 
-```re
+```reason
 unit => Js.Promise.t(Js.Nullable.t(Notification.t))
 ```
 
