@@ -186,7 +186,7 @@ Notification.t => option(string)
 
 #### `ReactNativePushNotificationIOS.Notification.getContentAvailable`
 
-```re
+```reason
 Notification.t => bool
 ```
 
