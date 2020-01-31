@@ -16,7 +16,7 @@ Exposed as `ReactNativePushNotificationIOS` module.
 ## Installation
 
 When
-[`@react-native-community/push-notification-ios`](https://github.com/react-native-community/push-notification-ios)
+[`@react-native-community/react-native-push-notification-ios`](https://github.com/react-native-community/react-native-push-notification-ios)
 is properly installed & configured by following their installation instructions,
 you can install the bindings:
 

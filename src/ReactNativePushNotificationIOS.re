@@ -54,22 +54,22 @@ external localNotification:
   localNotification =
   "";
 
-[@bs.module "@react-native-community/react-native-push-notification-ios"]
+[@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
 external presentLocalNotification: localNotification => unit =
   "presentLocalNotification";
 
-[@bs.module "@react-native-community/react-native-push-notification-ios"]
+[@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
 external scheduleLocalNotification: localNotification => unit =
   "scheduleLocalNotification";
 
-[@bs.module "@react-native-community/react-native-push-notification-ios"]
+[@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
 external cancelAllLocalNotifications: unit => unit =
   "cancelAllLocalNotifications";
 
-[@bs.module "@react-native-community/react-native-push-notification-ios"]
+[@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
 external removeAllDeliveredNotifications: unit => unit =
   "removeAllDeliveredNotifications";
@@ -85,34 +85,34 @@ type deliveredNotification = {
   "userInfo": Js.Nullable.t(Js.Json.t),
 };
 
-[@bs.module "@react-native-community/react-native-push-notification-ios"]
+[@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
 external getDeliveredNotifications:
   (array(deliveredNotification) => unit) => unit =
   "getDeliveredNotifications";
 
-[@bs.module "@react-native-community/react-native-push-notification-ios"]
+[@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
 external removeDeliveredNotifications: (~identifiers: array(string)) => unit =
   "removeDeliveredNotifications";
 
-[@bs.module "@react-native-community/react-native-push-notification-ios"]
+[@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
 external setApplicationIconBadgeNumber: int => unit =
   "setApplicationIconBadgeNumber";
 
-[@bs.module "@react-native-community/react-native-push-notification-ios"]
+[@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
 external getApplicationIconBadgeNumber: (int => unit) => unit =
   "getApplicationIconBadgeNumber";
 
 // multiple externals
-[@bs.module "@react-native-community/react-native-push-notification-ios"]
+[@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
 external cancelLocalNotifications: unit => unit = "cancelLocalNotifications";
 
 // multiple externals
-[@bs.module "@react-native-community/react-native-push-notification-ios"]
+[@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
 external cancelLocalNotificationsWithUserInfo: Js.Json.t => unit =
   "cancelLocalNotifications";
@@ -128,7 +128,7 @@ type formattedLocalNotification = {
   "userInfo": Js.Nullable.t(Js.Json.t),
 };
 
-[@bs.module "@react-native-community/react-native-push-notification-ios"]
+[@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
 external getScheduledLocalNotifications:
   (array(formattedLocalNotification) => unit) => unit =
@@ -141,7 +141,7 @@ type registrationError('a) = {
   "details": Js.t('a),
 };
 
-[@bs.module "@react-native-community/react-native-push-notification-ios"]
+[@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
 external addEventListener:
   (
@@ -156,7 +156,7 @@ external addEventListener:
   unit =
   "addEventListener";
 
-[@bs.module "@react-native-community/react-native-push-notification-ios"]
+[@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
 external removeEventListener:
   (
@@ -186,23 +186,23 @@ external requestPermissionsOptions:
   "";
 
 // multiple externals
-[@bs.module "@react-native-community/react-native-push-notification-ios"]
+[@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
 external requestPermissions: unit => Js.Promise.t(permissions) =
   "requestPermissions";
 
 // multiple externals
-[@bs.module "@react-native-community/react-native-push-notification-ios"]
+[@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
 external requestPermissionsWithOptions:
   requestPermissionsOptions => Js.Promise.t(permissions) =
   "requestPermissions";
 
-[@bs.module "@react-native-community/react-native-push-notification-ios"]
+[@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
 external abandonPermissions: unit => unit = "abandonPermissions";
 
-[@bs.module "@react-native-community/react-native-push-notification-ios"]
+[@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
 external checkPermissions: (unit => permissions) => unit = "checkPermissions";
 
@@ -213,11 +213,11 @@ external fetchResult:
   fetchResult =
   "";
 
-[@bs.module "@react-native-community/react-native-push-notification-ios"]
+[@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
 external finish: fetchResult => unit = "fetchResult";
 
-[@bs.module "@react-native-community/react-native-push-notification-ios"]
+[@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
 external getInitialNotification:
   unit => Js.Promise.t(Js.Nullable.t(Notification.t)) =
