@@ -5,7 +5,7 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@react-native-community/react-native-push-notification-ios": "^1.0.5"
+    "@react-native-community/push-notification-ios": "^1.0.5"
   },
   "repository": "https://github.com/reason-react-native/push-notification-ios.git",
   "license": "MIT",
