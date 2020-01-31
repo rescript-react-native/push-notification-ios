@@ -1,5 +1,9 @@
 # Changelog of `@reason-react-native/push-notification-ios`
 
+## 1.0.7 - 2020-01-31
+
+Fix peer dependency package name.
+
 ## 1.0.6 - 2020-01-31
 
 Fix module links.
