@@ -1,3 +1,19 @@
+module FetchResult = {
+  type t;
+
+  [@bs.module "@react-native-community/push-notification-ios"]
+  [@bs.scope ("default", "FetchResult")]
+  external newData: t = "NewData";
+
+  [@bs.module "@react-native-community/push-notification-ios"]
+  [@bs.scope ("default", "FetchResult")]
+  external noData: t = "NoData";
+
+  [@bs.module "@react-native-community/push-notification-ios"]
+  [@bs.scope ("default", "FetchResult")]
+  external resultFailed: t = "ResultFailed";
+};
+
 module Notification = {
   type t;
 
@@ -24,6 +40,8 @@ module Notification = {
 
   [@bs.send] [@bs.return nullable]
   external getThreadID: t => option(string) = "getThreadID";
+
+  [@bs.send] external finish: (t, FetchResult.t) => unit = "finish";
 };
 
 type localNotification;
@@ -205,17 +223,6 @@ external abandonPermissions: unit => unit = "abandonPermissions";
 [@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
 external checkPermissions: (unit => permissions) => unit = "checkPermissions";
-
-type fetchResult;
-[@bs.obj]
-external fetchResult:
-  (~_NewData: string=?, ~_NoData: string=?, ~_ResultFailed: string=?, unit) =>
-  fetchResult =
-  "";
-
-[@bs.module "@react-native-community/push-notification-ios"]
-[@bs.scope "default"]
-external finish: fetchResult => unit = "fetchResult";
 
 [@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
