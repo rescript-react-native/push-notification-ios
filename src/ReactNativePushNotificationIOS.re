@@ -138,9 +138,11 @@ type formattedLocalNotification = {
   .
   "fireDate": Js.Nullable.t(string),
   "alertAction": Js.Nullable.t(string),
+  "alertTitle": Js.Nullable.t(string),
   "alertBody": Js.Nullable.t(string),
   "applicationIconBadgeNumber": Js.Nullable.t(int),
   "category": Js.Nullable.t(string),
+  "repeatInterval": Js.Nullable.t(string),
   "soundName": Js.Nullable.t(string),
   "userInfo": Js.Nullable.t(Js.Json.t),
 };
