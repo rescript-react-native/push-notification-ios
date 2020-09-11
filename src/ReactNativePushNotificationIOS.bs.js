@@ -1,9 +1,9 @@
 'use strict';
 
 
-var FetchResult = { };
+var FetchResult = {};
 
-var $$Notification = { };
+var $$Notification = {};
 
 exports.FetchResult = FetchResult;
 exports.$$Notification = $$Notification;

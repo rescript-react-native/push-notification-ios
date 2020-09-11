@@ -69,8 +69,7 @@ external localNotification:
                        =?,
     unit
   ) =>
-  localNotification =
-  "";
+  localNotification;
 
 [@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
@@ -200,8 +199,7 @@ type requestPermissionsOptions;
 [@bs.obj]
 external requestPermissionsOptions:
   (~alert: bool=?, ~badge: bool=?, ~sound: bool=?, unit) =>
-  requestPermissionsOptions =
-  "";
+  requestPermissionsOptions;
 
 // multiple externals
 [@bs.module "@react-native-community/push-notification-ios"]
