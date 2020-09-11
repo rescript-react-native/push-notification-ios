@@ -201,14 +201,7 @@ type permissions = {
 type requestPermissionsOptions;
 [@bs.obj]
 external requestPermissionsOptions:
-  (
-    ~alert: bool=?,
-    ~badge: bool=?,
-    ~sound: bool=?,
-    ~lockScreen: bool=?,
-    ~notificationCenter: bool=?,
-    unit
-  ) =>
+  (~alert: bool=?, ~badge: bool=?, ~sound: bool=?, unit) =>
   requestPermissionsOptions;
 
 // multiple externals
