@@ -88,14 +88,13 @@ external localNotification:
 
 ```reason
 type deliveredNotification = {
-  .
-  "identifier": string,
-  "date": Js.Nullable.t(string),
-  "title": Js.Nullable.t(string),
-  "body": Js.Nullable.t(string),
-  "category": Js.Nullable.t(string),
-  "thread-id": Js.Nullable.t(string),
-  "userInfo": Js.Nullable.t(Js.Json.t),
+  identifier: string
+  date: option(string)
+  title: option(string)
+  body: option(string)
+  category: option(string)
+  threadId: option(string)
+  userInfo: option(Js.Json.t),
 };
 ```
 
@@ -103,14 +102,15 @@ type deliveredNotification = {
 
 ```reason
 type formattedLocalNotification = {
-  .
-  "fireDate": Js.Nullable.t(string),
-  "alertAction": Js.Nullable.t(string),
-  "alertBody": Js.Nullable.t(string),
-  "applicationIconBadgeNumber": Js.Nullable.t(int),
-  "category": Js.Nullable.t(string),
-  "soundName": Js.Nullable.t(string),
-  "userInfo": Js.Nullable.t(Js.Json.t),
+  fireDate: option(string),
+  alertAction: option(string),
+  alertTitle: option(string),
+  alertBody: option(string),
+  applicationIconBadgeNumber: option(int),
+  category: option(string),
+  repeatInterval: option(string),
+  soundName: option(string),
+  userInfo: option(Js.Json.t),
 };
 ```
 
@@ -118,10 +118,9 @@ type formattedLocalNotification = {
 
 ```reason
 type registrationError('a) = {
-  .
-  "message": string,
-  "code": int,
-  "details": Js.t('a),
+  message: string,
+  code: int,
+  details: Js.t('a),
 };
 ```
 
@@ -129,10 +128,11 @@ type registrationError('a) = {
 
 ```reason
 type permissions = {
-  .
-  "alert": bool,
-  "badge": bool,
-  "sound": bool,
+  alert: bool,
+  badge: bool,
+  sound: bool,
+  lockScreen: bool,
+  notificationCenter: bool,
 };
 ```
 
@@ -164,6 +164,12 @@ external fetchResult:
 
 ```reason
 Notification.t => option(Js.Json.t)
+```
+
+#### `ReactNativePushNotificationIOS.Notification.getTitle`
+
+```reason
+Notification.t => option(string)
 ```
 
 #### `ReactNativePushNotificationIOS.Notification.getMessage`
