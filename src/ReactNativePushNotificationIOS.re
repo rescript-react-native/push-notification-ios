@@ -20,6 +20,8 @@ module Notification = {
   [@bs.send] [@bs.return nullable]
   external getAlert: t => option(Js.Json.t) = "getAlert";
 
+  [@bs.send] external getTitle: t => string = "getTitle";
+
   [@bs.send] [@bs.return nullable]
   external getMessage: t => option(Js.Json.t) = "getMessage";
 
