@@ -4,14 +4,13 @@
 [![Version](https://img.shields.io/npm/v/@reason-react-native/push-notification-ios.svg)](https://www.npmjs.com/@reason-react-native/push-notification-ios)
 [![Chat](https://img.shields.io/discord/235176658175262720.svg?logo=discord&colorb=blue)](https://reasonml-community.github.io/reason-react-native/discord/)
 
-[ReasonML](https://reasonml.github.io) /
-[BuckleScript](https://bucklescript.github.io) bindings for
+[ReScript](https://rescript-lang.org) / [Reason](https://reasonml.github.io) bindings for
 [`@react-native-community/react-native-push-notification-ios`](https://github.com/react-native-community/react-native-push-notification-ios).
 
 Exposed as `ReactNativePushNotificationIOS` module.
 
-`@reason-react-native/push-notification-ios` X.y._ means it's compatible with
-`@react-native-community/react-native-push-notification-ios` X.y._
+`@reason-react-native/push-notification-ios` X.y.\* means it's compatible with
+`@react-native-community/react-native-push-notification-ios` X.y.\*
 
 ## Installation
 
@@ -27,7 +26,7 @@ yarn add @reason-react-native/push-notification-ios
 ```
 
 `@reason-react-native/push-notification-ios` should be added to
-`bs-dependencies` in your `bsconfig.json`. Something like
+`bs-dependencies` in your `bsconfig.json`:
 
 ```diff
 {
