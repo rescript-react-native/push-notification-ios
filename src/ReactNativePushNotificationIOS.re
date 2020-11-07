@@ -60,15 +60,7 @@ external localNotification:
     ~userInfo: Js.Json.t=?,
     ~applicationIconBadgeNumber: int=?,
     ~fireDate: Js.Date.t=?,
-    ~repeatInterval: [@bs.string] [
-                       | `minute
-                       | `hour
-                       | `day
-                       | `week
-                       | `month
-                       | `year
-                     ]
-                       =?,
+    ~repeatInterval: [ | `minute | `hour | `day | `week | `month | `year]=?,
     unit
   ) =>
   localNotification;
