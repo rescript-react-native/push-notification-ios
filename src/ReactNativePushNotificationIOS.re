@@ -14,15 +14,69 @@ module FetchResult = {
   external resultFailed: t = "ResultFailed";
 };
 
+/**
+ * Alert Object that can be included in the aps `alert` object
+ */
+type notificationAlert = {
+  title: option(string),
+  subtitle: option(string),
+  body: option(string),
+};
+
+type notificationActionOptions = {
+  foreground: option(bool),
+  destructive: option(bool),
+  authenticationRequired: option(bool),
+};
+
+type notificationActionTextInput = {
+  /**
+   * Text to be shown on button when user finishes text input.
+   * Default is "Send" or its equivalent word in user's language setting.
+   */
+  buttonTitle: option(string),
+  /**
+   * Placeholder for text input for text input action.
+   */
+  placeholder: option(string),
+};
+
+/**
+ * Notification Action that can be added to specific categories
+ */
+type notificationAction = {
+  /**
+   * Id of Action.
+   * This value will be returned as actionIdentifier when notification is received.
+   */
+  id: string,
+  /**
+   * Text to be shown on notification action button.
+   */
+  title: string,
+  /**
+   * Option for notification action.
+   */
+  options: option(notificationActionOptions),
+  /**
+   * Option for textInput action.
+   * If textInput prop exists, then user action will automatically become a text input action.
+   * The text user inputs will be in the userText field of the received notification.
+   */
+  textInput: option(notificationActionTextInput),
+};
+
 module Notification = {
   type t;
 
   [@bs.send] [@bs.return nullable]
+  // string | notificationAlert
   external getAlert: t => option(Js.Json.t) = "getAlert";
 
   [@bs.send] external getTitle: t => string = "getTitle";
 
   [@bs.send] [@bs.return nullable]
+  // string | notificationAlert
   external getMessage: t => option(Js.Json.t) = "getMessage";
 
   [@bs.send] [@bs.return nullable]
@@ -40,11 +94,100 @@ module Notification = {
   [@bs.send] [@bs.return nullable]
   external getData: t => option(Js.Json.t) = "getData";
 
+  /**
+   * Get's the action id of the notification action user has taken.
+   */
+  [@bs.send] [@bs.return nullable]
+  external getActionIdentifier: t => option(string) = "getActionIdentifier";
+
+  /**
+   * Gets the text user has inputed if user has taken the text action response.
+   */
+  [@bs.send] [@bs.return nullable]
+  external getUserText: t => option(string) = "getUserText";
+
   [@bs.send] [@bs.return nullable]
   external getThreadID: t => option(string) = "getThreadID";
 
   [@bs.send] external finish: (t, FetchResult.t) => unit = "finish";
 };
+
+type notificationRequest = {
+  /**
+   * identifier of the notification.
+   * Required in order to retrieve specific notification.
+   */
+  id: string,
+  /**
+   * A short description of the reason for the alert.
+   */
+  title: option(string),
+  /**
+   * A secondary description of the reason for the alert.
+   */
+  subtitle: option(string),
+  /**
+   * The message displayed in the notification alert.
+   */
+  body: option(string),
+  /**
+   * The number to display as the app's icon badge.
+   */
+  badge: option(int),
+  /**
+   * The sound to play when the notification is delivered.
+   */
+  sound: option(string),
+  /**
+   * The category of this notification. Required for actionable notifications.
+   */
+  category: option(string),
+  /**
+   * The thread identifier of this notification.
+   */
+  threadId: option(string),
+  /**
+   * The date which notification triggers.
+   */
+  fireDate: option(Js.Date.t),
+  /**
+   * Sets notification to repeat daily.
+   * Must be used with fireDate.
+   */
+  repeats: option(bool),
+  /**
+   * Sets notification to be silent
+   */
+  isSilent: option(bool),
+  /**
+   * Optional data to be added to the notification
+   */
+  userInfo: option(Js.Json.t),
+};
+
+[@bs.obj]
+external notificationRequest:
+  (
+    ~id: string,
+    ~title: string=?,
+    ~subtitle: string=?,
+    ~body: string=?,
+    ~badge: int=?,
+    ~sound: string=?,
+    ~category: string=?,
+    ~threadId: string=?,
+    ~fireDate: Js.Date.t=?,
+    ~repeats: bool=?,
+    ~isSilent: bool=?,
+    ~userInfo: Js.Json.t=?,
+    unit
+  ) =>
+  notificationRequest;
+
+[@bs.module "@react-native-community/push-notification-ios"]
+[@bs.scope "default"]
+external addNotificationRequest: notificationRequest => unit =
+  "addNotificationRequest";
 
 type localNotification;
 
@@ -65,20 +208,28 @@ external localNotification:
   ) =>
   localNotification;
 
+[@deprecated "Please use addNotificationRequest instead"]
 [@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
 external presentLocalNotification: localNotification => unit =
   "presentLocalNotification";
 
+[@deprecated "Please use addNotificationRequest instead"]
 [@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
 external scheduleLocalNotification: localNotification => unit =
   "scheduleLocalNotification";
 
+[@deprecated "Please use removeAllPendingNotificationRequests instead"]
 [@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
 external cancelAllLocalNotifications: unit => unit =
   "cancelAllLocalNotifications";
+
+[@bs.module "@react-native-community/push-notification-ios"]
+[@bs.scope "default"]
+external removeAllPendingNotificationRequests: unit => unit =
+  "removeAllPendingNotificationRequests";
 
 [@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
@@ -89,10 +240,13 @@ type deliveredNotification = {
   identifier: string,
   date: option(string),
   title: option(string),
+  subtitle: option(string),
   body: option(string),
   category: option(string),
+  actionIdentifier: option(string),
   [@bs.as "thread-id"]
   threadId: option(string),
+  userText: option(string),
   userInfo: option(Js.Json.t),
 };
 
@@ -140,11 +294,18 @@ type formattedLocalNotification = {
   userInfo: option(Js.Json.t),
 };
 
+[@deprecated "Please use getPendingNotificationRequests instead"]
 [@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
 external getScheduledLocalNotifications:
   (array(formattedLocalNotification) => unit) => unit =
   "getScheduledLocalNotifications";
+
+[@bs.module "@react-native-community/push-notification-ios"]
+[@bs.scope "default"]
+external getPendingNotificationRequests:
+  (array(notificationRequest) => unit) => unit =
+  "getPendingNotificationRequests";
 
 type registrationError('a) = {
   message: string,
@@ -182,12 +343,20 @@ external removeEventListener:
   unit =
   "removeEventListener";
 
-type permissions = {
+type requestedPermissions = {
+  alert: bool,
+  badge: bool,
+  sound: bool,
+};
+
+type checkedPermissions = {
   alert: bool,
   badge: bool,
   sound: bool,
   lockScreen: bool,
   notificationCenter: bool,
+  // https://developer.apple.com/documentation/usernotifications/unauthorizationstatus
+  authorizationStatus: int,
 };
 
 type requestPermissionsOptions;
@@ -199,14 +368,14 @@ external requestPermissionsOptions:
 // multiple externals
 [@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
-external requestPermissions: unit => Js.Promise.t(permissions) =
+external requestPermissions: unit => Js.Promise.t(requestedPermissions) =
   "requestPermissions";
 
 // multiple externals
 [@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
 external requestPermissionsWithOptions:
-  requestPermissionsOptions => Js.Promise.t(permissions) =
+  requestPermissionsOptions => Js.Promise.t(requestedPermissions) =
   "requestPermissions";
 
 [@bs.module "@react-native-community/push-notification-ios"]
@@ -215,10 +384,24 @@ external abandonPermissions: unit => unit = "abandonPermissions";
 
 [@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
-external checkPermissions: (unit => permissions) => unit = "checkPermissions";
+external checkPermissions: (unit => checkedPermissions) => unit =
+  "checkPermissions";
 
 [@bs.module "@react-native-community/push-notification-ios"]
 [@bs.scope "default"]
 external getInitialNotification:
   unit => Js.Promise.t(Js.Nullable.t(Notification.t)) =
   "getInitialNotification";
+
+/**
+ * Notification Category that can include specific actions
+ */
+type notificationCategory = {
+  id: string,
+  actions: array(notificationAction),
+};
+[@bs.module "@react-native-community/push-notification-ios"]
+[@bs.scope "default"]
+external setNotificationCategories:
+  array(notificationCategory) => Js.Promise.t(unit) =
+  "setNotificationCategories";
