@@ -1,8 +1,13 @@
 # Changelog of `@reason-react-native/push-notification-ios`
 
+## 1.7.0 - 2020-11-10
+
+- 1.7.0 compat
+- rescript 8.2 requirements
+
 ## 1.4.0 - 2020-09-11
 
-💥We switched to record instead of Js.t for results.
+💥 We switched to record instead of Js.t for results.
 
 - Fixed finish/FetchResult binding [#3](https://github.com/reason-react-native/push-notification-ios/pull/3) by [@cknitt](https://github.com/cknitt)
 - Added missing alertTitle & repeatInterval for formatted local notification (1.2.1) [cb6e76d](https://github.com/reason-react-native/push-notification-ios/commit/cb6e76d) by [@MoOx](https://github.com/MoOx)
