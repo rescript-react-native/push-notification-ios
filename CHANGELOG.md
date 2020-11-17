@@ -1,5 +1,9 @@
 # Changelog of `@reason-react-native/push-notification-ios`
 
+## 1.7.1 - 2020-11-17
+
+Fix npm description
+
 ## 1.7.0 - 2020-11-10
 
 - 1.7.0 compat
