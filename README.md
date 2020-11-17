@@ -5,7 +5,7 @@
 [![Chat](https://img.shields.io/discord/235176658175262720.svg?logo=discord&colorb=blue)](https://reasonml-community.github.io/reason-react-native/discord/)
 
 [ReScript](https://rescript-lang.org) / [Reason](https://reasonml.github.io) bindings for
-[`@react-native-community/react-native-push-notification-ios`](https://github.com/react-native-community/react-native-push-notification-ios).
+[`@react-native-community/react-native-push-notification-ios`](https://github.com/react-native-push-notification-ios/push-notification-ios).
 
 Exposed as `ReactNativePushNotificationIOS` module.
 
@@ -15,7 +15,7 @@ Exposed as `ReactNativePushNotificationIOS` module.
 ## Installation
 
 When
-[`@react-native-community/react-native-push-notification-ios`](https://github.com/react-native-community/react-native-push-notification-ios)
+[`@react-native-community/react-native-push-notification-ios`](https://github.com/react-native-push-notification-ios/push-notification-ios)
 is properly installed & configured by following their installation instructions,
 you can install the bindings:
 
