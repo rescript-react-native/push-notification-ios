@@ -1,5 +1,6 @@
 {
   "name": "@reason-react-native/push-notification-ios",
+  "description": "ReScript bindings for @react-native-community/push-notification-ios.",
   "version": "1.7.0",
   "publishConfig": {
     "access": "public"
