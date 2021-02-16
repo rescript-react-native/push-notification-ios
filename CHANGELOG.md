@@ -1,5 +1,9 @@
 # Changelog of `@reason-react-native/push-notification-ios`
 
+## 1.7.2 - 2021-02-16
+
+Fix bsconfig.json name
+
 ## 1.7.1 - 2020-11-17
 
 Fix npm description
