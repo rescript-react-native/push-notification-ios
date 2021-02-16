@@ -1,5 +1,5 @@
 {
-  "name": "@reason-react-native/__template__",
+  "name": "@reason-react-native/push-notification-ios",
   "refmt": 3,
   "reason": {
     "react-jsx": 3
