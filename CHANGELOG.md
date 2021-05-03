@@ -1,5 +1,9 @@
 # Changelog of `@rescript-react-native/push-notification-ios`
 
+## 1.7.3 - 2021-05-03
+
+ReScript
+
 ## 1.7.2 - 2021-02-16
 
 Fix bsconfig.json name
