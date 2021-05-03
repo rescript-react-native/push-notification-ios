@@ -1,9 +1,6 @@
 {
-  "name": "@reason-react-native/push-notification-ios",
-  "refmt": 3,
-  "reason": {
-    "react-jsx": 3
-  },
+  "name": "@rescript-react-native/push-notification-ios",
+  "reason": { "react-jsx": 3 },
   "package-specs": {
     "module": "commonjs",
     "in-source": true

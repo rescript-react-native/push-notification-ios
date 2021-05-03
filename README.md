@@ -1,15 +1,15 @@
-# `@reason-react-native/push-notification-ios`
+# `@rescript-react-native/push-notification-ios`
 
-[![Build Status](https://github.com/reason-react-native/push-notification-ios/workflows/Build/badge.svg)](https://github.com/reason-react-native/push-notification-ios/actions)
-[![Version](https://img.shields.io/npm/v/@reason-react-native/push-notification-ios.svg)](https://www.npmjs.com/@reason-react-native/push-notification-ios)
-[![Chat](https://img.shields.io/discord/235176658175262720.svg?logo=discord&colorb=blue)](https://reasonml-community.github.io/reason-react-native/discord/)
+[![Build Status](https://github.com/rescript-react-native/push-notification-ios/workflows/Build/badge.svg)](https://github.com/rescript-react-native/push-notification-ios/actions)
+[![Version](https://img.shields.io/npm/v/@rescript-react-native/push-notification-ios.svg)](https://www.npmjs.com/@rescript-react-native/push-notification-ios)
+[![ReScript Forum](https://img.shields.io/discourse/posts?color=e6484f&label=ReScript%20Forum&server=https%3A%2F%2Fforum.rescript-lang.org)](https://forum.rescript-lang.org/)
 
-[ReScript](https://rescript-lang.org) / [Reason](https://reasonml.github.io) bindings for
+[ReScript](https://rescript-lang.org) bindings for
 [`@react-native-community/react-native-push-notification-ios`](https://github.com/react-native-push-notification-ios/push-notification-ios).
 
 Exposed as `ReactNativePushNotificationIOS` module.
 
-`@reason-react-native/push-notification-ios` X.y.\* means it's compatible with
+`@rescript-react-native/push-notification-ios` X.y.\* means it's compatible with
 `@react-native-community/react-native-push-notification-ios` X.y.\*
 
 ## Installation
@@ -20,22 +20,22 @@ is properly installed & configured by following their installation instructions,
 you can install the bindings:
 
 ```console
-npm install @reason-react-native/push-notification-ios
+npm install @rescript-react-native/push-notification-ios
 # or
-yarn add @reason-react-native/push-notification-ios
+yarn add @rescript-react-native/push-notification-ios
 ```
 
-`@reason-react-native/push-notification-ios` should be added to
+`@rescript-react-native/push-notification-ios` should be added to
 `bs-dependencies` in your `bsconfig.json`:
 
 ```diff
 {
   //...
   "bs-dependencies": [
-    "reason-react",
-    "reason-react-native",
+    "@rescript/react",
+    "rescript-react-native",
     // ...
-+    "@reason-react-native/push-notification-ios"
++    "@rescript-react-native/push-notification-ios"
   ],
   //...
 }
@@ -47,13 +47,13 @@ yarn add @reason-react-native/push-notification-ios
 
 #### `ReactNativePushNotificationIOS.Notification.t`
 
-```reason
+```rescript
   type t; // abstract type
 ```
 
 #### `ReactNativePushNotificationIOS.localNotification`
 
-```reason
+```rescript
 type localNotification;
 
 [@bs.obj]
@@ -85,7 +85,7 @@ external localNotification:
 
 #### `ReactNativePushNotificationIOS.deliveredNotification`
 
-```reason
+```rescript
 type deliveredNotification = {
   identifier: string
   date: option(string)
@@ -99,7 +99,7 @@ type deliveredNotification = {
 
 #### `ReactNativePushNotificationIOS.formattedLocalNotification`
 
-```reason
+```rescript
 type formattedLocalNotification = {
   fireDate: option(string),
   alertAction: option(string),
@@ -115,7 +115,7 @@ type formattedLocalNotification = {
 
 #### `ReactNativePushNotificationIOS.registrationError`
 
-```reason
+```rescript
 type registrationError('a) = {
   message: string,
   code: int,
@@ -125,7 +125,7 @@ type registrationError('a) = {
 
 #### `ReactNativePushNotificationIOS.permissions`
 
-```reason
+```rescript
 type permissions = {
   alert: bool,
   badge: bool,
@@ -137,7 +137,7 @@ type permissions = {
 
 #### `ReactNativePushNotificationIOS.requestPermissionsOptions`
 
-```reason
+```rescript
 type requestPermissionsOptions;
 [@bs.obj]
 external requestPermissionsOptions:
@@ -148,7 +148,7 @@ external requestPermissionsOptions:
 
 #### `ReactNativePushNotificationIOS.fetchResult`
 
-```reason
+```rescript
 type fetchResult;
 [@bs.obj]
 external fetchResult:
@@ -161,127 +161,127 @@ external fetchResult:
 
 #### `ReactNativePushNotificationIOS.Notification.getAlert`
 
-```reason
+```rescript
 Notification.t => option(Js.Json.t)
 ```
 
 #### `ReactNativePushNotificationIOS.Notification.getTitle`
 
-```reason
+```rescript
 Notification.t => option(string)
 ```
 
 #### `ReactNativePushNotificationIOS.Notification.getMessage`
 
-```reason
+```rescript
 Notification.t => option(Js.Json.t)
 ```
 
 #### `ReactNativePushNotificationIOS.Notification.getSound`
 
-```reason
+```rescript
 Notification.t => option(string)
 ```
 
 #### `ReactNativePushNotificationIOS.Notification.getCategory`
 
-```reason
+```rescript
 Notification.t => option(string)
 ```
 
 #### `ReactNativePushNotificationIOS.Notification.getContentAvailable`
 
-```reason
+```rescript
 Notification.t => bool
 ```
 
 #### `ReactNativePushNotificationIOS.Notification.getBadgeCount`
 
-```reason
+```rescript
 Notification.t => option(int)
 ```
 
 #### `ReactNativePushNotificationIOS.Notification.getData`
 
-```reason
+```rescript
 Notification.t => option(Js.Json.t)
 ```
 
 #### `ReactNativePushNotificationIOS.Notification.getThreadID`
 
-```reason
+```rescript
 Notification.t => option(string)
 ```
 
 #### `ReactNativePushNotificationIOS.presentLocalNotification`
 
-```reason
+```rescript
 localNotification => unit
 ```
 
 #### `ReactNativePushNotificationIOS.scheduleLocalNotification`
 
-```reason
+```rescript
 localNotification => unit
 ```
 
 #### `ReactNativePushNotificationIOS.cancelAllLocalNotifications`
 
-```reason
+```rescript
 unit => unit
 ```
 
 #### `ReactNativePushNotificationIOS.removeAllDeliveredNotifications`
 
-```reason
+```rescript
 unit => unit
 ```
 
 #### `ReactNativePushNotificationIOS.getDeliveredNotifications`
 
-```reason
+```rescript
 (array(deliveredNotification) => unit)
 ```
 
 #### `ReactNativePushNotificationIOS.removeDeliveredNotifications`
 
-```reason
+```rescript
 (~identifiers: array(string)) => unit
 ```
 
 #### `ReactNativePushNotificationIOS.setApplicationIconBadgeNumber`
 
-```reason
+```rescript
 int => unit
 ```
 
 #### `ReactNativePushNotificationIOS.getApplicationIconBadgeNumber`
 
-```reason
+```rescript
 (int => unit) => unit
 ```
 
 #### `ReactNativePushNotificationIOS.cancelLocalNotifications`
 
-```reason
+```rescript
 unit => unit
 ```
 
 #### `ReactNativePushNotificationIOS.cancelLocalNotificationsWithUserInfo`
 
-```reason
+```rescript
 Js.Json.t => unit
 ```
 
 #### `ReactNativePushNotificationIOS.getScheduledLocalNotifications`
 
-```reason
+```rescript
 (array(formattedLocalNotification) => unit) => unit
 ```
 
 #### `ReactNativePushNotificationIOS.addEventListener`
 
-```reason
+```rescript
   (
   [@bs.string]
   [
@@ -296,7 +296,7 @@ Js.Json.t => unit
 
 #### `ReactNativePushNotificationIOS.removeEventListener`
 
-```reason
+```rescript
 (
   [@bs.string]
   [
@@ -311,37 +311,37 @@ Js.Json.t => unit
 
 #### `ReactNativePushNotificationIOS.requestPermissions`
 
-```reason
+```rescript
 unit => Js.Promise.t(permissions)
 ```
 
 #### `ReactNativePushNotificationIOS.requestPermissionsWithOptions`
 
-```reason
+```rescript
 requestPermissionsOptions => Js.Promise.t(permissions)
 ```
 
 #### `ReactNativePushNotificationIOS.abandonPermissions`
 
-```reason
+```rescript
 unit => unit
 ```
 
 #### `ReactNativePushNotificationIOS.checkPermissions`
 
-```reason
+```rescript
 (unit => permissions) => unit
 ```
 
 #### `ReactNativePushNotificationIOS.finish`
 
-```reason
+```rescript
 fetchResult => unit
 ```
 
 #### `ReactNativePushNotificationIOS.getInitialNotification`
 
-```reason
+```rescript
 unit => Js.Promise.t(Js.Nullable.t(Notification.t))
 ```
 
@@ -355,11 +355,11 @@ releases.
 ## Contribute
 
 Read the
-[contribution guidelines](https://github.com/reason-react-native/.github/blob/master/CONTRIBUTING.md)
+[contribution guidelines](https://github.com/rescript-react-native/.github/blob/master/CONTRIBUTING.md)
 before contributing.
 
 ## Code of Conduct
 
 We want this community to be friendly and respectful to each other. Please read
-[our full code of conduct](https://github.com/reason-react-native/.github/blob/master/CODE_OF_CONDUCT.md)
+[our full code of conduct](https://github.com/rescript-react-native/.github/blob/master/CODE_OF_CONDUCT.md)
 so that you can understand what actions will and will not be tolerated.
